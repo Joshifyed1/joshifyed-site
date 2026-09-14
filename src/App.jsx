@@ -30,102 +30,116 @@ import {
   ChevronRight,
   TrendingUp,
   Clock,
-  Tag
+  Radio,
+  Cpu
 } from 'lucide-react';
 
 // ==========================================
-// 1. YOUR CUSTOM DATA (EDIT TEXT & IMAGES HERE)
+// 1. BRAND LINKS & DESTINATIONS
 // ==========================================
+const LINKS = {
+  x: "https://x.com/joshifyed1",
+  youtube: "https://youtube.com/@joshifyed",
+  fourthwall: "https://joshifyed-shop.fourthwall.com/"
+};
 
+// ==========================================
+// 2. CUSTOM DATA: BLOGS (SOLO SATOSHI, PS5, GABBER)
+// ==========================================
 const SAMPLE_BLOGS = [
   {
     id: 1,
-    title: "Shadow Realm Descent: Navigating the PS5 Nocturne Engine",
-    date: "Sep 10, 2026",
-    category: "Gaming",
-    readTime: "4 min read",
-    summary: "Breaking down the mechanics of our latest boss clear, frame pacing tweaks, and capturing 4K HDR stream drops.",
-    content: `When exploring brutal encounter designs, pacing is everything. Over the weekend stream, we spent 4 hours dissecting the phase-three attack sequences in Saros. 
-
-The primary trick wasn't raw reaction speed—it was anticipating the audio cues right before the blood-sigil burst attacks. We mapped key defensive roll cancels to an optimal 45ms window.
-
-Next week, we are dropping a complete breakdown Shorts series highlighting the routing shortcuts. Stay tuned to the channel!`,
-    likes: 242,
-    banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: 2,
-    title: "The Solo Mining Experiment: 1.2 TH/s of Pure Decentralized Will",
-    date: "Sep 06, 2026",
+    title: "Solo Satoshi Mining: Overclocking the Bitaxe & Hunting Rare Blocks",
+    date: "Sep 13, 2026",
     category: "Hardware",
-    readTime: "6 min read",
-    summary: "Overclocking the custom Bitaxe rig, thermal balancing under heavy load, and hunting the golden ticket block.",
-    content: `Running a solo node and mining hardware in the background is both an art and a discipline. After dialing in core voltages to 1180mV and optimizing Noctua fan ducting, we hit stable clock rates without heat throttle spikes.
+    readTime: "5 min read",
+    summary: "Breaking down open-source SoloSatoshi desktop mining hardware, AxeOS voltage curves, and the mathematical beauty of solo mining at home.",
+    content: `Running decentralized solo mining hardware directly on your desk has become one of the most rewarding rabbit holes in tech. Devices from the SoloSatoshi ecosystem—such as the Bitaxe Gamma and the multi-ASIC NerdQAxe++ setups—democratize mining without demanding a 240V warehouse connection.
 
-Will we hit an independent block reward this year? Statistically improbable, but mathematically inevitable given enough hash patience. The rig blinks like a crimson beacon in the studio.`,
-    likes: 318,
+By tuning the BM1366 / BM1368 ASIC frequencies and optimizing custom thermal ducting, we have managed to push solid gigahashes per watt right on our bench while keeping acoustics whisper-quiet. Pointing the AxeOS firmware toward Public-Pool and Solo CKPool transforms your desk into an active sovereign node participant. 
+
+Is hunting a solo block mathematically a long shot? Absolutely. But every valid nonces checked is sovereign hash rate contributing to network verification, and that golden ticket hash is what makes home solo mining pure adrenaline.`,
+    likes: 384,
     banner: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
   },
   {
-    id: 3,
-    title: "Blood Sigil Collection: Drop #01 Lookbook Revealed",
-    date: "Aug 29, 2026",
-    category: "Merch",
-    readTime: "3 min read",
-    summary: "High-density heavyweight fleece, metallic crimson embroidery, and ultra-wide custom desk mats are live on Fourthwall.",
-    content: `We spent two months sampling textiles to ensure our oversized gothic hoodies don't fade after five washes. The blood-red embroidery on obsidian cotton hits the exact sinister aesthetic we wanted for the brand.
+    id: 2,
+    title: "PS5 Showcase Logs: Saros Mastery, Boss Timing & 4K Stream Drops",
+    date: "Sep 11, 2026",
+    category: "Gaming",
+    readTime: "4 min read",
+    summary: "Refining combat routing and parry windows in Saros on PlayStation 5, and optimizing low-latency capture pipelines for YouTube.",
+    content: `We have been putting serious time into our recent PlayStation 5 game uploads on the channel, particularly diving deep into the grim, high-intensity encounters in Saros.
 
-Every order through Fourthwall supports direct upgrades to our stream rig and local AI rendering workstation. Check out the showcase tab to grab yours.`,
-    likes: 195,
-    banner: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80"
+The biggest breakthrough in our recent boss run came down to rhythm cancel frames. Instead of relying on standard dodge recovery rolls, buffering our secondary kinetic weapon right after a heavy strike cancels the idle recovery frames entirely. We mapped the input sequence on DualSense and clipped the victory run for the latest YouTube upload.
+
+We're continuing to optimize the 4K 60FPS stream pipeline using OBS to keep black levels crisp and combat transitions smooth. Catch the full playthrough breakdown on the channel!`,
+    likes: 295,
+    banner: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: 3,
+    title: "Thunderdome & 190 BPM: The Resurgence of 90s Gabber Culture",
+    date: "Sep 07, 2026",
+    category: "Music",
+    readTime: "6 min read",
+    summary: "Exploring the legendary Rotterdam gabber movement, distorted Roland TR-909 kickdrums, and why high-octane hardcore techno remains unmatched.",
+    content: `Before modern festival EDM became formulaic, early-90s Rotterdam birthed something relentless: Gabber. Born in the underground clubs of the Netherlands and epitomized by legendary Thunderdome events, gabber discarded polite melodic structure in favor of pure sonic shock.
+
+At its core sits the legendary, severely overdriven Roland TR-909 kick drum—clipped through analog mixers until the square waves hit like a sledgehammer at 180 to 220 BPM. Paired with aggressive hoover synths, frantic vocal chops, and the iconic Australian tracksuits and hakken dance style, gabber was a genuine subcultural countermovement.
+
+In a world where underground production often plays it safe, revisiting 90s hardcore techno and early terrorcore is an electric reminder of how raw, uncompromising electronic sound design can be. We often blast early gabber vinyl sets during late-night studio building sessions.`,
+    likes: 412,
+    banner: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 4,
-    title: "Automating Dark Lore with Local Neural Nodes",
-    date: "Aug 18, 2026",
-    category: "Creator Lore",
-    readTime: "5 min read",
-    summary: "Leveraging 70B parameter open-weights models to generate dynamic stream lore and interactive community prompts.",
-    content: `Cloud APIs are convenient, but running uncensored, zero-latency local LLMs directly on unified high-bandwidth hardware is freedom. 
-
-We now generate custom boss backstories, interactive chat fortune-telling, and soundstage triggers completely offline with zero subscription overhead.`,
-    likes: 412,
+    title: "Autonomous Dark Lore & Offline Intelligence",
+    date: "Aug 28, 2026",
+    category: "Tech",
+    readTime: "4 min read",
+    summary: "Running local quantized neural networks for ambient narrative generation and automated production workflows.",
+    content: `Running local LLMs directly on unified high-bandwidth memory hardware gives you complete control over your creative pipeline. By running uncensored open models locally, we generate live world-building narratives and stream challenges completely offline with zero latency and total creative privacy.`,
+    likes: 218,
     banner: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
+// ==========================================
+// 3. FOURTHWALL MERCH STORE ITEMS
+// ==========================================
 const MERCH_ITEMS = [
   {
     id: 1,
-    title: "Sanctum Oversized Heavy Hoodie",
+    title: "Joshifyed Blood Sigil Heavy Hoodie",
     price: "$68.00",
     image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80",
     tag: "Heavyweight 450 GSM",
-    url: "https://joshifyed.fourthwall.com"
+    url: LINKS.fourthwall
   },
   {
     id: 2,
-    title: "Crimson Eclipse Desk Mat (900x400mm)",
-    price: "$34.00",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
-    tag: "Micro-Weave Stitched",
-    url: "https://joshifyed.fourthwall.com"
-  },
-  {
-    id: 3,
     title: "Obsidian Core Acid-Wash Tee",
     price: "$36.00",
     image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80",
-    tag: "Vintage Wash Finish",
-    url: "https://joshifyed.fourthwall.com"
+    tag: "Vintage Wash Cotton",
+    url: LINKS.fourthwall
+  },
+  {
+    id: 3,
+    title: "Crimson Eclipse Extended Desk Mat",
+    price: "$34.00",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+    tag: "Micro-Weave Stitched",
+    url: LINKS.fourthwall
   },
   {
     id: 4,
-    title: "Gothic Insignia Insulated Tumbler",
+    title: "Gothic Sigil Insulated Travel Tumbler",
     price: "$28.00",
     image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80",
-    tag: "Double Wall Steel",
-    url: "https://joshifyed.fourthwall.com"
+    tag: "Stainless Steel 20oz",
+    url: LINKS.fourthwall
   }
 ];
 
@@ -138,59 +152,55 @@ const GALLERY_ITEMS = [
   },
   {
     id: 2,
-    title: "Saros PS5 Boss Finale Clear Frame",
+    title: "Saros PS5 Boss Clear Snapshot",
     category: "Gaming",
     image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 3,
-    title: "Bitaxe Solo Miner Thermal Bench",
+    title: "Solo Satoshi ASIC Thermal Bench",
     category: "Hardware",
     image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 4,
+    title: "90s Hardcore Techno Synthesizer Rig",
+    category: "Music",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 5,
     title: "Blood Sigil Collection Sample Fits",
     category: "Merch",
     image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: 5,
+    id: 6,
     title: "Late Night Stream Layout & Soundboard",
     category: "Studio",
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    id: 6,
-    title: "Gothic Typography Asset Exploration",
-    category: "Art",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
 // ==========================================
-// 2. RETRO ARCADE COMPONENT (BLOOD VOID & APEX)
+// 4. RETRO ARCADE COMPONENT
 // ==========================================
-
 function ArcadeSection() {
-  const [activeGame, setActiveGame] = useState('bloodVoid'); // 'bloodVoid' or 'crimsonApex'
+  const [activeGame, setActiveGame] = useState('bloodVoid');
   const canvasRef = useRef(null);
   
-  // Blood Void State
   const [gameRunning, setGameRunning] = useState(false);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(1480);
   const [lives, setLives] = useState(3);
   const [soundEnabled, setSoundEnabled] = useState(true);
 
-  // Crimson Apex State
   const [apexScore, setApexScore] = useState(0);
   const [apexTarget, setApexTarget] = useState({ x: 50, y: 50 });
   const [apexTimeLeft, setApexTimeLeft] = useState(15);
   const [apexActive, setApexActive] = useState(false);
   const [apexHigh, setApexHigh] = useState(24);
 
-  // Controls for Blood Void
   const keysRef = useRef({});
   const gameStateRef = useRef({
     ship: { x: 300, y: 200, r: 14, a: -Math.PI / 2, rot: 0, thrust: false, xv: 0, yv: 0 },
@@ -199,7 +209,6 @@ function ArcadeSection() {
     particles: []
   });
 
-  // Sound Synth Helper
   const playGothicTone = (freq, type = 'sine', duration = 0.08) => {
     if (!soundEnabled) return;
     try {
@@ -219,24 +228,19 @@ function ArcadeSection() {
     } catch (e) {}
   };
 
-  // Keyboard Event Listeners
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
         e.preventDefault();
       }
       keysRef.current[e.code] = true;
-
-      // Shoot on Space
       if (e.code === 'Space' && gameRunning) {
         shootLaser();
       }
     };
-
     const handleKeyUp = (e) => {
       keysRef.current[e.code] = false;
     };
-
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
     return () => {
@@ -257,14 +261,12 @@ function ArcadeSection() {
     playGothicTone(320, 'triangle', 0.1);
   };
 
-  // Initialize Blood Void Canvas Game Loop
   useEffect(() => {
     if (activeGame !== 'bloodVoid') return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    // Spawn Void Orbs
     const spawnAsteroids = (count = 5) => {
       const ast = [];
       for (let i = 0; i < count; i++) {
@@ -287,17 +289,13 @@ function ArcadeSection() {
       gameStateRef.current.asteroids = ast;
     };
 
-    if (gameStateRef.current.asteroids.length === 0) {
-      spawnAsteroids(5);
-    }
+    if (gameStateRef.current.asteroids.length === 0) spawnAsteroids(5);
 
     let animId;
-
     const update = () => {
       ctx.fillStyle = '#060408';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Subtle gothic grid lines
       ctx.strokeStyle = 'rgba(185, 28, 28, 0.08)';
       ctx.lineWidth = 1;
       for (let x = 0; x < canvas.width; x += 40) {
@@ -317,24 +315,17 @@ function ArcadeSection() {
       const s = st.ship;
 
       if (gameRunning) {
-        // Controls Handling
-        if (keysRef.current['ArrowLeft'] || keysRef.current['KeyA']) {
-          s.rot = -0.07;
-        } else if (keysRef.current['ArrowRight'] || keysRef.current['KeyD']) {
-          s.rot = 0.07;
-        } else {
-          s.rot = 0;
-        }
+        if (keysRef.current['ArrowLeft'] || keysRef.current['KeyA']) s.rot = -0.07;
+        else if (keysRef.current['ArrowRight'] || keysRef.current['KeyD']) s.rot = 0.07;
+        else s.rot = 0;
 
         s.thrust = keysRef.current['ArrowUp'] || keysRef.current['KeyW'];
 
-        // Ship Rotation & Movement
         s.a += s.rot;
         if (s.thrust) {
           s.xv += 0.15 * Math.cos(s.a);
           s.yv += 0.15 * Math.sin(s.a);
 
-          // Crimson Thrust Sparks
           st.particles.push({
             x: s.x - s.r * Math.cos(s.a),
             y: s.y - s.r * Math.sin(s.a),
@@ -351,14 +342,12 @@ function ArcadeSection() {
         s.x += s.xv;
         s.y += s.yv;
 
-        // Screen Wrap
         if (s.x < 0) s.x = canvas.width;
         if (s.x > canvas.width) s.x = 0;
         if (s.y < 0) s.y = canvas.height;
         if (s.y > canvas.height) s.y = 0;
       }
 
-      // Draw Particles
       for (let i = st.particles.length - 1; i >= 0; i--) {
         const p = st.particles[i];
         p.x += p.xv;
@@ -373,14 +362,12 @@ function ArcadeSection() {
         if (p.life <= 0) st.particles.splice(i, 1);
       }
 
-      // Draw Lasers
       for (let i = st.lasers.length - 1; i >= 0; i--) {
         const l = st.lasers[i];
         l.x += l.xv;
         l.y += l.yv;
         l.life--;
 
-        // Wrap Lasers
         if (l.x < 0) l.x = canvas.width;
         if (l.x > canvas.width) l.x = 0;
         if (l.y < 0) l.y = canvas.height;
@@ -394,11 +381,9 @@ function ArcadeSection() {
         ctx.fill();
         ctx.shadowBlur = 0;
 
-        // Asteroid Collision Check
         for (let j = st.asteroids.length - 1; j >= 0; j--) {
           const a = st.asteroids[j];
           if (Math.hypot(l.x - a.x, l.y - a.y) < a.r) {
-            // Destroy Asteroid
             playGothicTone(160, 'sawtooth', 0.15);
             setScore(prev => {
               const updated = prev + 50;
@@ -406,7 +391,6 @@ function ArcadeSection() {
               return updated;
             });
 
-            // Burst particles
             for (let k = 0; k < 12; k++) {
               st.particles.push({
                 x: a.x,
@@ -435,16 +419,11 @@ function ArcadeSection() {
             break;
           }
         }
-
         if (l.life <= 0) st.lasers.splice(i, 1);
       }
 
-      // Check if all asteroids destroyed
-      if (st.asteroids.length === 0 && gameRunning) {
-        spawnAsteroids(6);
-      }
+      if (st.asteroids.length === 0 && gameRunning) spawnAsteroids(6);
 
-      // Draw Void Sigil Asteroids
       st.asteroids.forEach(a => {
         if (gameRunning) {
           a.x += a.xv;
@@ -471,7 +450,6 @@ function ArcadeSection() {
         ctx.fill();
         ctx.stroke();
 
-        // Check Ship Collision
         if (gameRunning && Math.hypot(s.x - a.x, s.y - a.y) < s.r + a.r) {
           playGothicTone(85, 'sawtooth', 0.3);
           setLives(l => {
@@ -481,7 +459,6 @@ function ArcadeSection() {
             }
             return l - 1;
           });
-          // Reset ship position
           s.x = canvas.width / 2;
           s.y = canvas.height / 2;
           s.xv = 0;
@@ -489,17 +466,14 @@ function ArcadeSection() {
         }
       });
 
-      // Draw Ship
       ctx.save();
       ctx.translate(s.x, s.y);
       ctx.rotate(s.a + Math.PI / 2);
-
       ctx.strokeStyle = '#ef4444';
       ctx.fillStyle = '#1c080d';
       ctx.lineWidth = 2;
       ctx.shadowColor = '#dc2626';
       ctx.shadowBlur = 8;
-
       ctx.beginPath();
       ctx.moveTo(0, -s.r * 1.5);
       ctx.lineTo(-s.r, s.r);
@@ -517,7 +491,6 @@ function ArcadeSection() {
     return () => cancelAnimationFrame(animId);
   }, [gameRunning, activeGame, highScore]);
 
-  // Crimson Apex Timer
   useEffect(() => {
     let timer;
     if (apexActive && apexTimeLeft > 0) {
@@ -551,7 +524,6 @@ function ArcadeSection() {
 
   return (
     <div className="bg-[#0c0810] border border-red-950/80 rounded-2xl overflow-hidden shadow-2xl shadow-red-950/30">
-      {/* Arcade Header */}
       <div className="p-4 sm:p-6 border-b border-red-900/30 flex flex-wrap items-center justify-between gap-4 bg-black/40">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-red-950/60 border border-red-700/40 text-red-500">
@@ -560,13 +532,12 @@ function ArcadeSection() {
           <div>
             <h3 className="font-serif font-black text-xl text-zinc-100 tracking-wide flex items-center gap-2">
               BLOOD VOID ARCADE
-              <span className="text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800/50">Retro Engine</span>
+              <span className="text-[10px] uppercase font-sans tracking-widest px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800/50">In-Browser</span>
             </h3>
-            <p className="text-xs text-zinc-400">Playable gothic mini-games built directly into the realm.</p>
+            <p className="text-xs text-zinc-400">Playable arcade modules built directly into the site.</p>
           </div>
         </div>
 
-        {/* Game Switcher Tabs */}
         <div className="flex items-center gap-2 bg-[#140a12] p-1 rounded-xl border border-red-900/30">
           <button
             onClick={() => setActiveGame('bloodVoid')}
@@ -591,7 +562,6 @@ function ArcadeSection() {
         </div>
       </div>
 
-      {/* Game Stage Area */}
       {activeGame === 'bloodVoid' ? (
         <div className="relative bg-[#060408] flex flex-col items-center p-4">
           <div className="w-full max-w-[650px] flex items-center justify-between mb-3 text-xs font-mono text-zinc-300">
@@ -622,7 +592,7 @@ function ArcadeSection() {
                 <Skull className="w-12 h-12 text-red-600 mb-3 animate-pulse" />
                 <h4 className="font-serif font-black text-2xl text-zinc-100 tracking-wide mb-1">ENTER THE VOID</h4>
                 <p className="text-xs text-zinc-400 max-w-sm mb-5">
-                  Rotate with <strong className="text-zinc-200">A / D</strong> or <strong className="text-zinc-200">Arrows</strong>. Thrusters with <strong className="text-zinc-200">W / Up</strong>. Fire blood beams with <strong className="text-red-400">Spacebar</strong>.
+                  Steer with <strong className="text-zinc-200">A / D</strong> or <strong className="text-zinc-200">Arrows</strong>. Thrusters with <strong className="text-zinc-200">W / Up</strong>. Fire blood beams with <strong className="text-red-400">Spacebar</strong>.
                 </p>
                 <button
                   onClick={() => {
@@ -636,43 +606,6 @@ function ArcadeSection() {
                 </button>
               </div>
             )}
-          </div>
-
-          {/* On-screen controls for mobile/tablet */}
-          <div className="flex sm:hidden items-center justify-center gap-3 mt-3">
-            <button 
-              onMouseDown={() => { keysRef.current['ArrowLeft'] = true; }} 
-              onMouseUp={() => { keysRef.current['ArrowLeft'] = false; }}
-              onTouchStart={() => { keysRef.current['ArrowLeft'] = true; }} 
-              onTouchEnd={() => { keysRef.current['ArrowLeft'] = false; }}
-              className="p-3 bg-red-950/40 border border-red-900/40 rounded-lg text-xs font-mono"
-            >
-              ◀ Turn
-            </button>
-            <button 
-              onMouseDown={() => { keysRef.current['ArrowUp'] = true; }} 
-              onMouseUp={() => { keysRef.current['ArrowUp'] = false; }}
-              onTouchStart={() => { keysRef.current['ArrowUp'] = true; }} 
-              onTouchEnd={() => { keysRef.current['ArrowUp'] = false; }}
-              className="p-3 bg-red-950/40 border border-red-900/40 rounded-lg text-xs font-mono"
-            >
-              ▲ Thruster
-            </button>
-            <button 
-              onMouseDown={() => { keysRef.current['ArrowRight'] = true; }} 
-              onMouseUp={() => { keysRef.current['ArrowRight'] = false; }}
-              onTouchStart={() => { keysRef.current['ArrowRight'] = true; }} 
-              onTouchEnd={() => { keysRef.current['ArrowRight'] = false; }}
-              className="p-3 bg-red-950/40 border border-red-900/40 rounded-lg text-xs font-mono"
-            >
-              Turn ▶
-            </button>
-            <button 
-              onClick={shootLaser} 
-              className="px-4 py-3 bg-red-700 text-white rounded-lg text-xs font-bold font-mono"
-            >
-              FIRE
-            </button>
           </div>
         </div>
       ) : (
@@ -715,11 +648,10 @@ function ArcadeSection() {
 }
 
 // ==========================================
-// 3. MAIN APPLICATION CONTAINER
+// 5. MAIN APP COMPONENT
 // ==========================================
-
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home'); // 'home', 'blog', 'arcade', 'merch', 'gallery'
+  const [activeTab, setActiveTab] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPost, setSelectedPost] = useState(null);
@@ -727,7 +659,6 @@ export default function App() {
   const [likedPosts, setLikedPosts] = useState({});
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  // Filter Blogs
   const filteredBlogs = SAMPLE_BLOGS.filter(post => {
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -741,7 +672,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#050407] text-zinc-100 font-sans selection:bg-red-800 selection:text-white">
-      {/* Background Ambience Layers */}
+      {/* Background Lighting */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-950/20 rounded-full blur-[140px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-rose-950/15 rounded-full blur-[180px]" />
@@ -752,14 +683,13 @@ export default function App() {
       <div className="relative z-20 bg-gradient-to-r from-red-950 via-black to-red-950 border-b border-red-900/40 text-[11px] font-mono tracking-wider py-1.5 px-4 text-center text-red-300">
         <span className="inline-flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-red-500 animate-ping inline-block" />
-          FOURTHWALL DROP IS LIVE &bull; WORLDWIDE EXPEDITION AVAILABLE &bull; USE CODE: SANCTUM
+          OFFICIAL FOURTHWALL MERCH DROP IS LIVE &bull; WORLDWIDE EXPEDITIONS &bull; USE CODE: SANCTUM
         </span>
       </div>
 
-      {/* Navigation Header */}
+      {/* Header Navigation */}
       <header className="sticky top-0 z-30 backdrop-blur-xl bg-[#08050a]/90 border-b border-red-950/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-          {/* Brand Logo */}
           <div 
             onClick={() => setActiveTab('home')}
             className="flex items-center gap-3 cursor-pointer group"
@@ -779,13 +709,12 @@ export default function App() {
             </div>
           </div>
 
-          {/* Desktop Nav Items */}
           <nav className="hidden md:flex items-center gap-1 bg-[#100914] p-1.5 rounded-2xl border border-red-950/80">
             {[
               { id: 'home', label: 'Sanctum' },
               { id: 'blog', label: 'Chronicles' },
               { id: 'arcade', label: 'Blood Arcade' },
-              { id: 'merch', label: 'Reliquary (Shop)' },
+              { id: 'merch', label: 'The Shop' },
               { id: 'gallery', label: 'Shadows' },
             ].map((item) => (
               <button
@@ -802,10 +731,9 @@ export default function App() {
             ))}
           </nav>
 
-          {/* External Outpost Links */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://youtube.com/@joshifyed"
+              href={LINKS.youtube}
               target="_blank"
               rel="noreferrer"
               className="p-2.5 rounded-xl bg-[#120a14] border border-red-950 text-zinc-400 hover:text-red-500 hover:border-red-800 transition shadow-sm"
@@ -814,16 +742,16 @@ export default function App() {
               <Youtube className="w-4 h-4" />
             </a>
             <a
-              href="https://x.com/joshifyed"
+              href={LINKS.x}
               target="_blank"
               rel="noreferrer"
               className="p-2.5 rounded-xl bg-[#120a14] border border-red-950 text-zinc-400 hover:text-red-400 hover:border-red-800 transition shadow-sm"
-              title="X Broadcast"
+              title="X Profile"
             >
               <Twitter className="w-4 h-4" />
             </a>
             <a
-              href="https://joshifyed.fourthwall.com"
+              href={LINKS.fourthwall}
               target="_blank"
               rel="noreferrer"
               className="px-4 py-2 rounded-xl bg-gradient-to-r from-red-800 to-red-950 hover:from-red-700 hover:to-red-900 text-white text-xs font-serif font-bold tracking-wider uppercase border border-red-600/50 shadow-lg shadow-red-950 flex items-center gap-2 transition transform hover:-translate-y-0.5"
@@ -833,7 +761,6 @@ export default function App() {
             </a>
           </div>
 
-          {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
             className="md:hidden p-2.5 rounded-xl bg-[#120a14] border border-red-900/40 text-zinc-300"
@@ -842,14 +769,13 @@ export default function App() {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
         {mobileNavOpen && (
           <div className="md:hidden bg-[#0a060d] border-b border-red-900/50 px-6 py-5 space-y-3">
             {[
               { id: 'home', label: 'Sanctum (Home)' },
               { id: 'blog', label: 'The Chronicles (Blog)' },
               { id: 'arcade', label: 'Blood Arcade' },
-              { id: 'merch', label: 'The Reliquary (Shop)' },
+              { id: 'merch', label: 'The Shop (Merch)' },
               { id: 'gallery', label: 'Shadows (Gallery)' },
             ].map(item => (
               <button
@@ -866,13 +792,13 @@ export default function App() {
               </button>
             ))}
             <div className="pt-3 border-t border-red-950/80 flex items-center justify-around">
-              <a href="https://youtube.com/@joshifyed" target="_blank" rel="noreferrer" className="text-zinc-400 flex items-center gap-1 text-xs">
+              <a href={LINKS.youtube} target="_blank" rel="noreferrer" className="text-zinc-400 flex items-center gap-1 text-xs">
                 <Youtube className="w-4 h-4 text-red-500" /> YouTube
               </a>
-              <a href="https://x.com/joshifyed" target="_blank" rel="noreferrer" className="text-zinc-400 flex items-center gap-1 text-xs">
+              <a href={LINKS.x} target="_blank" rel="noreferrer" className="text-zinc-400 flex items-center gap-1 text-xs">
                 <Twitter className="w-4 h-4 text-red-400" /> X
               </a>
-              <a href="https://joshifyed.fourthwall.com" target="_blank" rel="noreferrer" className="text-red-400 font-bold flex items-center gap-1 text-xs">
+              <a href={LINKS.fourthwall} target="_blank" rel="noreferrer" className="text-red-400 font-bold flex items-center gap-1 text-xs">
                 <ShoppingBag className="w-4 h-4" /> Store
               </a>
             </div>
@@ -883,35 +809,32 @@ export default function App() {
       {/* Main Realm Body */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-10">
 
-        {/* ==================================== */}
-        {/* VIEW: SANCTUM (HOME)                 */}
-        {/* ==================================== */}
+        {/* VIEW: SANCTUM (HOME) */}
         {activeTab === 'home' && (
           <div className="space-y-16">
-            {/* Hero Section */}
             <div className="relative rounded-3xl overflow-hidden border border-red-900/40 bg-gradient-to-b from-[#140810] via-[#0b060d] to-[#08050a] p-8 sm:p-14 shadow-2xl">
               <div className="absolute -right-20 -top-20 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-700/50 text-red-400 text-xs font-mono mb-6">
                   <Flame className="w-3.5 h-3.5 text-red-500" />
-                  GOTHIC REALM &bull; GAMING &bull; HARDWARE &bull; CREATOR
+                  GOTHIC REALM &bull; PS5 RUNS &bull; SOLO MINING &bull; 90s HARDCORE
                 </div>
                 <h1 className="font-serif font-black text-4xl sm:text-6xl text-zinc-100 tracking-tight leading-[1.1] mb-6">
                   WELCOME TO THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-600 to-red-800">SANCTUM</span> OF JOSHIFYED.
                 </h1>
                 <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-8">
-                  The central fortress for dark-fantasy game runs, custom solo mining rigs, high-spec hardware logs, and official Fourthwall apparel drops.
+                  Home for PlayStation 5 gameplay uploads, solo Satoshi Bitcoin mining setups, 90s gabber techno deep-dives, and official Fourthwall apparel drops.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
                   <a
-                    href="https://joshifyed.fourthwall.com"
+                    href={LINKS.fourthwall}
                     target="_blank"
                     rel="noreferrer"
                     className="px-6 py-3.5 bg-gradient-to-r from-red-700 to-red-900 hover:from-red-600 hover:to-red-800 text-white font-serif font-bold tracking-wider text-sm uppercase rounded-xl border border-red-500/40 shadow-xl shadow-red-950 flex items-center gap-2 transition transform hover:-translate-y-0.5"
                   >
                     <ShoppingBag className="w-4 h-4" />
-                    Enter The Reliquary
+                    Enter Fourthwall Store
                   </a>
                   <button
                     onClick={() => setActiveTab('arcade')}
@@ -930,37 +853,69 @@ export default function App() {
               </div>
             </div>
 
-            {/* Arcade Showcase Teaser */}
+            {/* Featured Blog Scrolls */}
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="font-serif font-black text-2xl text-zinc-100">THE BLOOD ARCADE</h2>
-                  <p className="text-xs text-zinc-400">Play real retro arcade modules directly inside your browser.</p>
+                  <h2 className="font-serif font-black text-2xl text-zinc-100">THE GOTHIC CHRONICLES</h2>
+                  <p className="text-xs text-zinc-400">Solo mining hardware, PS5 clears, and 90s underground sounds.</p>
                 </div>
                 <button
-                  onClick={() => setActiveTab('arcade')}
+                  onClick={() => setActiveTab('blog')}
                   className="text-xs font-serif tracking-wider uppercase text-red-400 hover:text-red-300 flex items-center gap-1"
                 >
-                  Full Arena <ChevronRight className="w-4 h-4" />
+                  View All Scrolls <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
-              <ArcadeSection />
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {SAMPLE_BLOGS.slice(0, 3).map((post) => (
+                  <div
+                    key={post.id}
+                    onClick={() => setSelectedPost(post)}
+                    className="bg-[#0b0710] border border-red-950/80 hover:border-red-800/60 rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer group transition p-5"
+                  >
+                    <div>
+                      <div className="relative aspect-video rounded-xl overflow-hidden bg-black mb-4">
+                        <img
+                          src={post.banner}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100"
+                        />
+                        <span className="absolute top-2.5 left-2.5 text-[10px] font-mono uppercase bg-red-950 text-red-300 px-2 py-0.5 rounded border border-red-800/50">
+                          {post.category}
+                        </span>
+                      </div>
+                      <h3 className="font-serif font-bold text-lg text-zinc-100 group-hover:text-red-400 transition mb-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-zinc-400 text-xs line-clamp-2 leading-relaxed">
+                        {post.summary}
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-red-950/60 flex items-center justify-between text-xs text-zinc-500 font-mono">
+                      <span>{post.date}</span>
+                      <span className="text-red-400 group-hover:underline">Read Scroll &rarr;</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Fourthwall Reliquary Teaser */}
+            {/* Fourthwall Merch Showcase */}
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <h2 className="font-serif font-black text-2xl text-zinc-100">THE SANCTUM RELIQUARY</h2>
-                  <p className="text-xs text-zinc-400">Official Fourthwall merchandise crafted in dark obsidian hues.</p>
+                  <p className="text-xs text-zinc-400">Official Fourthwall merchandise crafted in obsidian & blood hues.</p>
                 </div>
                 <a
-                  href="https://joshifyed.fourthwall.com"
+                  href={LINKS.fourthwall}
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs font-serif tracking-wider uppercase text-red-400 hover:text-red-300 flex items-center gap-1"
                 >
-                  View All Relics <ExternalLink className="w-3.5 h-3.5" />
+                  Visit Fourthwall Store <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
@@ -989,7 +944,7 @@ export default function App() {
                     <div className="flex items-center justify-between mt-2 pt-2 border-t border-red-950/60">
                       <span className="font-mono text-xs text-red-400 font-semibold">{item.price}</span>
                       <span className="text-[11px] text-zinc-500 group-hover:text-zinc-300 flex items-center gap-1">
-                        Grab Relic <ChevronRight className="w-3 h-3" />
+                        View On Store <ChevronRight className="w-3 h-3" />
                       </span>
                     </div>
                   </a>
@@ -997,99 +952,30 @@ export default function App() {
               </div>
             </div>
 
-            {/* Recent Chronicles & Stream Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Blog Left (2 Col) */}
-              <div className="lg:col-span-2 space-y-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h2 className="font-serif font-black text-2xl text-zinc-100">RECENT CHRONICLES</h2>
-                  <button onClick={() => setActiveTab('blog')} className="text-xs text-red-400 hover:text-red-300">
-                    Read All &rarr;
-                  </button>
-                </div>
-                {SAMPLE_BLOGS.slice(0, 2).map((post) => (
-                  <div
-                    key={post.id}
-                    onClick={() => setSelectedPost(post)}
-                    className="p-5 rounded-2xl bg-[#0c0810] border border-red-950/80 hover:border-red-700/50 cursor-pointer transition group"
-                  >
-                    <div className="flex items-center gap-3 text-xs text-zinc-500 font-mono mb-2">
-                      <span className="text-red-400">{post.category}</span>
-                      <span>&bull;</span>
-                      <span>{post.date}</span>
-                      <span>&bull;</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <h3 className="font-serif font-bold text-lg text-zinc-100 group-hover:text-red-400 transition mb-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-zinc-400 text-sm line-clamp-2 leading-relaxed">
-                      {post.summary}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Broadcast Schedule / Channel */}
-              <div className="p-6 rounded-2xl bg-[#0c0810] border border-red-950/80 flex flex-col justify-between">
+            {/* Retro In-Browser Arcade */}
+            <div>
+              <div className="flex items-center justify-between mb-6">
                 <div>
-                  <div className="flex items-center gap-2 text-red-500 text-xs font-mono uppercase tracking-wider mb-2">
-                    <Zap className="w-4 h-4" />
-                    Channel Dispatch
-                  </div>
-                  <h3 className="font-serif font-bold text-xl text-zinc-100 mb-4">LATEST BROADCASTS</h3>
-                  <div className="space-y-4 text-xs">
-                    <div className="p-3 rounded-xl bg-black/40 border border-red-950">
-                      <div className="text-zinc-400 font-mono">FRIDAY NOCTURNE</div>
-                      <div className="font-bold text-zinc-200 mt-1">Saros Endgame Speedrun & Boss Carries</div>
-                      <div className="text-[11px] text-red-500 mt-1">9:00 PM EST &bull; PS5 Live</div>
-                    </div>
-                    <div className="p-3 rounded-xl bg-black/40 border border-red-950">
-                      <div className="text-zinc-400 font-mono">HARDWARE LABS</div>
-                      <div className="font-bold text-zinc-200 mt-1">Bitaxe Overclock & Hash Power Tune</div>
-                      <div className="text-[11px] text-red-500 mt-1">Sunday &bull; YouTube Shorts</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-red-950/60 flex items-center justify-between">
-                  <a 
-                    href="https://youtube.com/@joshifyed" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="text-xs font-serif font-bold text-red-400 hover:text-red-300 flex items-center gap-1"
-                  >
-                    YouTube Channel <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                  <a 
-                    href="https://x.com/joshifyed" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="text-xs font-serif font-bold text-zinc-400 hover:text-zinc-200 flex items-center gap-1"
-                  >
-                    X Feed <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  <h2 className="font-serif font-black text-2xl text-zinc-100">THE BLOOD ARCADE</h2>
+                  <p className="text-xs text-zinc-400">Play real retro arcade modules directly inside your browser.</p>
                 </div>
               </div>
+              <ArcadeSection />
             </div>
           </div>
         )}
 
-        {/* ==================================== */}
-        {/* VIEW: DAILY BLOG / CHRONICLES        */}
-        {/* ==================================== */}
+        {/* VIEW: BLOG / CHRONICLES */}
         {activeTab === 'blog' && (
           <div className="space-y-8">
-            {/* Header & Controls */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-red-950/80">
               <div>
                 <h1 className="font-serif font-black text-3xl sm:text-4xl text-zinc-100">THE GOTHIC CHRONICLES</h1>
                 <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                  Daily developer logs, solo mining experiments, stream tech, and dark lore.
+                  Solo mining hardware logs, PS5 game uploads, 90s hardcore techno, and tech explorations.
                 </p>
               </div>
 
-              {/* Search Box */}
               <div className="relative w-full md:w-72">
                 <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
@@ -1102,9 +988,8 @@ export default function App() {
               </div>
             </div>
 
-            {/* Category Filters */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2">
-              {['All', 'Gaming', 'Hardware', 'Merch', 'Creator Lore'].map((cat) => (
+              {['All', 'Hardware', 'Gaming', 'Music', 'Tech'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
@@ -1119,7 +1004,6 @@ export default function App() {
               ))}
             </div>
 
-            {/* Blog Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredBlogs.map((post) => (
                 <div
@@ -1178,46 +1062,35 @@ export default function App() {
                 </div>
               ))}
             </div>
-
-            {filteredBlogs.length === 0 && (
-              <div className="text-center py-20 text-zinc-500">
-                <Skull className="w-10 h-10 mx-auto mb-2 opacity-50" />
-                No chronicles found matching that search criteria.
-              </div>
-            )}
           </div>
         )}
 
-        {/* ==================================== */}
-        {/* VIEW: BLOOD ARCADE                   */}
-        {/* ==================================== */}
+        {/* VIEW: BLOOD ARCADE */}
         {activeTab === 'arcade' && (
           <div className="space-y-8">
             <div>
               <h1 className="font-serif font-black text-3xl sm:text-4xl text-zinc-100">THE BLOOD ARCADE</h1>
               <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                Custom canvas video games rendered directly in-browser. Zero emulators required.
+                Custom canvas retro mini-games rendered live. Zero emulators required.
               </p>
             </div>
             <ArcadeSection />
           </div>
         )}
 
-        {/* ==================================== */}
-        {/* VIEW: MERCH / THE RELIQUARY          */}
-        {/* ==================================== */}
+        {/* VIEW: MERCH (FOURTHWALL) */}
         {activeTab === 'merch' && (
           <div className="space-y-10">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-red-950/80">
               <div>
-                <h1 className="font-serif font-black text-3xl sm:text-4xl text-zinc-100">THE RELIQUARY</h1>
+                <h1 className="font-serif font-black text-3xl sm:text-4xl text-zinc-100">THE SHOP</h1>
                 <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                  Official Joshifyed apparel and artifacts fulfilled securely through Fourthwall.
+                  Official Joshifyed merchandise fulfilled directly through Fourthwall.
                 </p>
               </div>
 
               <a
-                href="https://joshifyed.fourthwall.com"
+                href={LINKS.fourthwall}
                 target="_blank"
                 rel="noreferrer"
                 className="px-5 py-2.5 bg-gradient-to-r from-red-800 to-red-950 text-white font-serif font-bold text-xs uppercase tracking-wider rounded-xl border border-red-700/50 flex items-center justify-center gap-2 hover:from-red-700 hover:to-red-900 transition"
@@ -1226,7 +1099,6 @@ export default function App() {
               </a>
             </div>
 
-            {/* Merch Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {MERCH_ITEMS.map((item) => (
                 <div
@@ -1260,20 +1132,19 @@ export default function App() {
                     className="w-full py-2.5 bg-red-950/50 hover:bg-red-900/80 text-zinc-200 hover:text-white font-serif font-semibold text-xs uppercase tracking-wider rounded-xl border border-red-800/40 flex items-center justify-center gap-2 transition"
                   >
                     <ShoppingBag className="w-3.5 h-3.5 text-red-400" />
-                    Claim on Fourthwall
+                    Buy on Fourthwall
                   </a>
                 </div>
               ))}
             </div>
 
-            {/* Fourthwall Guarantee Banner */}
             <div className="p-6 rounded-2xl bg-[#0e0812] border border-red-950 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
               <div>
                 <h4 className="font-serif font-bold text-zinc-200 text-sm">SECURE CHECKOUT BY FOURTHWALL</h4>
                 <p className="text-xs text-zinc-400">Direct creator support &bull; Encrypted Stripe/Apple Pay checkout &bull; Worldwide fulfillment.</p>
               </div>
               <a
-                href="https://joshifyed.fourthwall.com"
+                href={LINKS.fourthwall}
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs font-serif font-bold text-red-400 hover:underline flex items-center gap-1"
@@ -1284,15 +1155,13 @@ export default function App() {
           </div>
         )}
 
-        {/* ==================================== */}
-        {/* VIEW: SHADOW GALLERY                 */}
-        {/* ==================================== */}
+        {/* VIEW: GALLERY */}
         {activeTab === 'gallery' && (
           <div className="space-y-8">
             <div>
               <h1 className="font-serif font-black text-3xl sm:text-4xl text-zinc-100">THE SHADOW GALLERY</h1>
               <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                Visual artifacts, battlestation captures, thumbnail concepts, and hardware benches.
+                Visual artifacts, battlestation captures, SoloSatoshi hardware setups, and stream moments.
               </p>
             </div>
 
@@ -1323,9 +1192,7 @@ export default function App() {
 
       </main>
 
-      {/* ==================================== */}
-      {/* MODAL: BLOG READER                   */}
-      {/* ==================================== */}
+      {/* BLOG MODAL READER */}
       {selectedPost && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
           <div className="bg-[#0b0710] border border-red-900/60 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
@@ -1382,9 +1249,7 @@ export default function App() {
         </div>
       )}
 
-      {/* ==================================== */}
-      {/* MODAL: IMAGE INSPECT (GALLERY)       */}
-      {/* ==================================== */}
+      {/* GALLERY LIGHTBOX MODAL */}
       {selectedGalleryImg && (
         <div 
           onClick={() => setSelectedGalleryImg(null)}
@@ -1429,9 +1294,9 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-6 text-xs text-zinc-400">
-            <a href="https://joshifyed.fourthwall.com" target="_blank" rel="noreferrer" className="hover:text-red-400 transition">Fourthwall</a>
-            <a href="https://youtube.com/@joshifyed" target="_blank" rel="noreferrer" className="hover:text-red-400 transition">YouTube</a>
-            <a href="https://x.com/joshifyed" target="_blank" rel="noreferrer" className="hover:text-red-400 transition">X (Twitter)</a>
+            <a href={LINKS.fourthwall} target="_blank" rel="noreferrer" className="hover:text-red-400 transition">Fourthwall Store</a>
+            <a href={LINKS.youtube} target="_blank" rel="noreferrer" className="hover:text-red-400 transition">YouTube</a>
+            <a href={LINKS.x} target="_blank" rel="noreferrer" className="hover:text-red-400 transition">X (@joshifyed1)</a>
             <button onClick={() => setActiveTab('arcade')} className="hover:text-red-400 transition">Blood Arcade</button>
           </div>
         </div>
